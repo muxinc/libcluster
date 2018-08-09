@@ -228,7 +228,7 @@ defmodule Cluster.Strategy.Kubernetes do
             addrs =
               Enum.flat_map(subsets, fn
                 %{"addresses" => addresses} when is_list(addresses) ->
-                  Enum.map(addresses, fn %{"ip" => ip} -> :"#{app_name}@#{ip}" end)
+                  Enum.map(addresses, fn %{"ip" => ip} -> :"#{app_name}@#{ip}:4000" end)
 
                 _ ->
                   []
